@@ -12,13 +12,13 @@
 /var/spool/cron/crontabs/：这个目录下包含了每个用户的定时任务文件，这些文件由系统管理员或用户创建，只有对应的用户可以编辑。
 
 
-# 查看定时任务状态
+# 查看cron定时任务状态
 systemctl status cron
 
-# 刷新定时任务
+# 刷新cron定时任务
 sudo systemctl restart cron
 
-# cron执行时区 设置时区
+# cron设置执行时区
 sudo timedatectl set-timezone Asia/Shanghai
 
 示例
