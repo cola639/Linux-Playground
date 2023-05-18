@@ -6,3 +6,6 @@
 
 # deb 安装包
 /deb
+
+# nginx 启动命令文件夹
+/etc/nginx/sbin
