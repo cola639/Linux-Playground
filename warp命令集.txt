@@ -1,0 +1,8 @@
+# 开启warp脚本
+bash /script/warp.sh 
+
+# 关闭
+warp-cli disconnect
+
+0 6 * * * warp-cli disconnect
+0 19 * * * warp-cli disconnect
