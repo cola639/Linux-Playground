@@ -1,13 +1,15 @@
 # 安装warp包并注册 warp的deb包打开命令行
 sudo dpkg -i cloudflare_warp.deb
 apt --fix-broken install
+sudo dpkg -i cloudflare_warp.deb
 sudo apt update
 sudo apt upgrade
 warp-cli register
 warp-cli --help
 
-# warp安装注册 合并执行
-sudo dpkg -i cloudflare_warp.deb && sudo apt --fix-broken install -y && sudo apt update && sudo apt upgrade -y && warp-cli register && warp-cli --help
+# warp安装注册合并执行 PS 注意sudo apt --fix-broken install -y 避免依赖失败问题
+sudo apt update && sudo apt upgrade -y && (sudo dpkg -i cloudflare_warp.deb || (sudo apt --fix-broken install -y && sudo dpkg -i cloudflare_warp.deb)) && warp-cli register && warp-cli --help
+
 
 # 查看cron定时任务状态 activity
 systemctl status cron
