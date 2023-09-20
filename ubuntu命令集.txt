@@ -1,2 +1,0 @@
-# 删除某个文件夹
-rm -r foldername
