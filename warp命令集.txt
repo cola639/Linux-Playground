@@ -1,8 +1,9 @@
 # 开启warp脚本
-bash /script/warp.sh 
+bash /a_script/warp.sh 
 
 # 关闭
 warp-cli disconnect
 
+# 每天6点/19点 关闭warp-cli
 0 6 * * * warp-cli disconnect
 0 19 * * * warp-cli disconnect

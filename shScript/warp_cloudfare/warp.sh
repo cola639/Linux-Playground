@@ -10,7 +10,8 @@ echo $ip_addr
 warp-cli add-excluded-route $ip_addr
 
 # 查看当前排除路由列表
-warp-cli excluded-routes
+# warp-cli excluded-routes
+warp-cli get-excluded-routes
 
 # 连接
 warp-cli connect
