@@ -1,5 +1,0 @@
-# 开启
-bash /script/warp.sh
-
-# 关闭
-bash /script/warp_close.sh
