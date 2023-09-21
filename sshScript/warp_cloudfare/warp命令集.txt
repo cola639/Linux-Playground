@@ -7,15 +7,19 @@ sudo apt upgrade
 warp-cli register
 warp-cli --help
 
-# warp安装注册合并执行 PS 注意sudo apt --fix-broken install -y 避免依赖失败问题
+# warp安装注册合并执行 PS 在deb安装包目录打开命令行 注意sudo apt --fix-broken install -y 避免依赖失败问题
 sudo apt update && sudo apt upgrade -y && (sudo dpkg -i cloudflare_warp.deb || (sudo apt --fix-broken install -y && sudo dpkg -i cloudflare_warp.deb)) && warp-cli register && warp-cli --help
 
 
 # 查看cron定时任务状态 activity
 systemctl status cron
 
+# cron设置执行时区
+sudo timedatectl set-timezone Asia/Shanghai
+
 # 打开定时任务
 sudo crontab -e
+
 
 # 配置每天6点/19点 关闭warp-cli
 0 6 * * * bash /a_script/warp_close.sh
@@ -23,9 +27,6 @@ sudo crontab -e
 
 # 刷新cron定时任务
 sudo systemctl restart cron
-
-# cron设置执行时区
-sudo timedatectl set-timezone Asia/Shanghai
 
 # 开启warp脚本
 bash /a_script/warp_open.sh 
