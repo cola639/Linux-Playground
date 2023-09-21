@@ -15,13 +15,13 @@
 # 查看cron定时任务状态
 systemctl status cron
 
-# 刷新cron定时任务
-sudo systemctl restart cron
-
 # cron设置执行时区
 sudo timedatectl set-timezone Asia/Shanghai
 
-示例
+# 刷新cron定时任务
+sudo systemctl restart cron
+
+# 示例
 0 6 * * * bash /a_script/warp_close.sh
 0 19 * * * bash /a_script/warp_close.sh
 0 3 * * 0 bash /usr/bin/ssl_update.sh
