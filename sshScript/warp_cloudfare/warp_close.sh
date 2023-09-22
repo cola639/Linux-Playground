@@ -1,2 +1,2 @@
 # 断开
-warp-cli connect
+warp-cli disconnect
