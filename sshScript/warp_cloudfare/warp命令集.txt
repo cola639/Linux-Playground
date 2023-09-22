@@ -1,3 +1,6 @@
+# 安装翻墙脚本
+bash <(curl -L -s https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/install.sh) | tee v2ray_ins.log
+
 # 安装warp包并注册 warp的deb包打开命令行
 sudo dpkg -i cloudflare_warp.deb
 apt --fix-broken install
@@ -8,7 +11,7 @@ warp-cli register
 warp-cli --help
 
 # warp安装注册合并执行 PS 在deb安装包目录打开命令行 注意sudo apt --fix-broken install -y 避免依赖失败问题
-sudo apt update && sudo apt upgrade -y && (sudo dpkg -i cloudflare_warp.deb || (sudo apt --fix-broken install -y && sudo dpkg -i cloudflare_warp.deb)) && warp-cli register && warp-cli --help
+sudo apt update && sudo apt upgrade -y && (sudo dpkg -i cloudflare_warp.deb || (sudo apt --fix-broken install -y && sudo dpkg -i cloudflare_warp.deb)) && echo y | warp-cli register && warp-cli --help
 
 
 # 查看cron定时任务状态 activity
@@ -32,3 +35,6 @@ bash /a_script/warp_open.sh
 
 # 关闭warp
 bash /a_script/warp_close.sh
+
+
+
