@@ -10,9 +10,11 @@ sudo apt upgrade
 warp-cli register
 warp-cli --help
 
-# warp安装注册合并执行 PS 在deb安装包目录打开命令行 注意sudo apt --fix-broken install -y 避免依赖失败问题
-sudo apt update && sudo apt upgrade -y && (sudo dpkg -i cloudflare_warp.deb || (sudo apt --fix-broken install -y && sudo dpkg -i cloudflare_warp.deb)) && echo y | warp-cli register && warp-cli --help
+# warp安装 PS 在deb安装包目录打开命令行 注意sudo apt --fix-broken install -y 避免依赖失败问题
+sudo apt update && sudo apt upgrade -y && (sudo dpkg -i cloudflare_warp.deb || (sudo apt --fix-broken install -y && sudo dpkg -i cloudflare_warp.deb))
 
+# warp注册合并执行
+echo y | warp-cli register && warp-cli --help
 
 # 查看cron定时任务状态 activity
 systemctl status cron
@@ -36,5 +38,9 @@ bash /a_script/warp_open.sh
 # 关闭warp
 bash /a_script/warp_close.sh
 
+# 检查时区
+timedatectl
 
+# 选择编辑器
+select-editor
 
