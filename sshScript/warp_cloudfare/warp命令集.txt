@@ -44,3 +44,6 @@ timedatectl
 # 选择编辑器
 select-editor
 
+# 查看cron定时任务日志
+grep CRON /var/log/syslog
+
