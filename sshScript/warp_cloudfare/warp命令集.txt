@@ -29,6 +29,8 @@ sudo crontab -e
 0 6 * * * bash /a_script/warp_close.sh
 0 19 * * * bash /a_script/warp_close.sh
 
+# 在 nano 编辑器中，您可以按 Ctrl + X，然后按 Y，再按 Enter 来保存。在 vi 或 vim 编辑器中，您可以按 :wq 然后按 Enter 来保存。
+
 # 刷新cron定时任务
 sudo systemctl restart cron
 

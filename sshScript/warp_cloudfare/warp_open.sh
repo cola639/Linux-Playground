@@ -9,8 +9,12 @@ echo $ip_addr
 # 添加排除路由
 warp-cli add-excluded-route $ip_addr
 
-# 添加所有路由连接IPV4
+# 添加所有路由连接IPV4!!不要使用
 # warp-cli add-excluded-route 0.0.0.0/0
+
+# 添加常用IP地址段
+warp-cli add-excluded-route 112.94.0.0/16
+warp-cli add-excluded-route 121.33.0.0/16
 
 # 查看当前排除路由列表
 # warp-cli excluded-routes
