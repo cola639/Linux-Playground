@@ -1,7 +1,7 @@
 # 安装翻墙脚本
 bash <(curl -L -s https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/install.sh) | tee v2ray_ins.log
 
-# 安装warp包并注册 warp的deb包打开命令行
+# warp安装 PS 在deb安装包目录打开命令行 注意sudo apt --fix-broken install -y 避免依赖失败问题
 sudo dpkg -i cloudflare_warp.deb
 apt --fix-broken install
 sudo dpkg -i cloudflare_warp.deb
@@ -10,26 +10,22 @@ sudo apt upgrade
 warp-cli register
 warp-cli --help
 
-# warp安装 PS 在deb安装包目录打开命令行 注意sudo apt --fix-broken install -y 避免依赖失败问题
-sudo apt update && sudo apt upgrade -y && (sudo dpkg -i cloudflare_warp.deb || (sudo apt --fix-broken install -y && sudo dpkg -i cloudflare_warp.deb))
-
 # warp注册合并执行
 echo y | warp-cli register && warp-cli --help
 
-# 查看cron定时任务状态 activity
+# 查看cron定时任务状态 active (running)为正常
 systemctl status cron
 
 # cron设置执行时区
 sudo timedatectl set-timezone Asia/Shanghai
 
 # 打开定时任务
+# 在 nano 编辑器中，您可以按 Ctrl + X，然后按 Y，再按 Enter 来保存。在 vi 或 vim 编辑器中，您可以按 :wq 然后按 Enter 来保存。
 sudo crontab -e
 
 # 配置每天6点/19点 关闭warp-cli
 0 6 * * * bash /a_script/warp_close.sh
 0 19 * * * bash /a_script/warp_close.sh
-
-# 在 nano 编辑器中，您可以按 Ctrl + X，然后按 Y，再按 Enter 来保存。在 vi 或 vim 编辑器中，您可以按 :wq 然后按 Enter 来保存。
 
 # 刷新cron定时任务
 sudo systemctl restart cron
