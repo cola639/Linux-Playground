@@ -45,3 +45,5 @@ select-editor
 # 查看cron定时任务日志
 grep CRON /var/log/syslog
 
+# 移除IP
+warp-cli remove-excluded-route 112.94.0.0/16
