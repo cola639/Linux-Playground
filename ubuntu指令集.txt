@@ -1,2 +1,10 @@
 # 删除某个文件夹
 rm -r foldername
+
+# ubuntu 20.04 查看计算机配置
+sudo apt install neofetch
+neofetch
+
+# ubuntu 20.04 查看网络配置
+sudo apt install net-tools
+ifconfig
