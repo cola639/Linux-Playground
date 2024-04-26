@@ -6,7 +6,7 @@ ip_addr=$(who am i | awk '{print $NF}' | tr -d '()')
 # 打印ip_addr
 echo $ip_addr
 
-# 添加排除路由
+# 添加当前IP地址到白名单
 warp-cli add-excluded-route $ip_addr
 
 # 添加所有路由连接IPV4!!不要使用

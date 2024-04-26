@@ -1,6 +1,11 @@
 # 安装翻墙脚本
 bash <(curl -L -s https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/install.sh) | tee v2ray_ins.log
 
+# ubuntu一键部署warp
+创建一个a_script全部文件都放进去
+执行1 chmod +x setup.sh
+执行2 ./setup.sh
+
 # warp安装 PS 在deb安装包目录打开命令行 注意sudo apt --fix-broken install -y 避免依赖失败问题
 sudo dpkg -i cloudflare_warp.deb
 apt --fix-broken install
@@ -9,9 +14,6 @@ sudo apt update
 sudo apt upgrade
 warp-cli register
 warp-cli --help
-
-# warp注册合并执行
-echo y | warp-cli register && warp-cli --help
 
 # 查看cron定时任务状态 active (running)为正常
 systemctl status cron
