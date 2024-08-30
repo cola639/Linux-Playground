@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # 网络名称
-NETWORK="tldraw"  # 根据实际情况修改网络名称
+NETWORK="tldraw" # 根据实际情况修改网络名称
 
 # 后端容器名称
-BACK_CONTAINER="tldraw-server"  # 根据实际情况修改容器名称
+BACK_CONTAINER="tldraw-server" # 根据实际情况修改容器名称
 
 # 前端容器名称
-FRONT_CONTAINER="tldraw-ui"  # 根据实际情况修改容器名称
+FRONT_CONTAINER="tldraw-ui" # 根据实际情况修改容器名称
 
 # 检查 Docker 网络是否存在
 if [ $(docker network ls | grep -c $NETWORK) -eq 0 ]; then
@@ -39,7 +39,6 @@ connect_container_to_network $BACK_CONTAINER
 connect_container_to_network $FRONT_CONTAINER
 
 echo "Setup completed."
-
 
 # 1 创建网络组
 # 2 连结已运行前后端容器
