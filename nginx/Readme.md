@@ -4,3 +4,5 @@
 
 chmod +x setup.sh
 ./setup.sh
+
+# 最佳方式 使用 cloudflare flexible
