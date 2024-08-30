@@ -33,3 +33,14 @@ gsettings set org.gnome.desktop.screensaver idle-activation-enabled false
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
 gsettings set org.gnome.desktop.screensaver lock-enabled false
+
+# 检查当前cpu
+lscpu
+
+# 检查当前内存占用
+free -h
+
+# 检查当前硬盘占用  当前大小 已使用大小
+df -BG | awk 'NR>1 {total+=$2} END {print "Total size: ", total " GB"}'
+df -BG | awk 'NR>1 {used+=$3} END {print "Total used: ", used " GB"}'
+
