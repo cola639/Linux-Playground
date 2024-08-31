@@ -1,4 +1,4 @@
-# ubuntu 一键部署 warp
+# ubuntu 一键部署 warp 访问 gpt
 
 创建一个 a_script 全部文件都放进去
 chmod +x setup.sh

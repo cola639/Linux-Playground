@@ -4,9 +4,9 @@
 sudo apt update && sudo apt upgrade -y
 
 # 安装 Cloudflare WARP
-sudo dpkg -i /path/to/cloudflare_warp.deb
+sudo dpkg -i ./cloudflare_warp.deb
 sudo apt --fix-broken install -y
-sudo dpkg -i /path/to/cloudflare_warp.deb
+sudo dpkg -i ./cloudflare_warp.deb
 
 # 注册 WARP
 warp-cli register
