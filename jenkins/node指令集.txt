@@ -1,7 +1,0 @@
-node -v
-npm -v
-npm install 
-rm -rf ./dist/*
-npm run build
-rm -rf /www/web/h5/*
-cp -rf ./dist/* /www/web/h5

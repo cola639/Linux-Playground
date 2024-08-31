@@ -25,13 +25,13 @@ else
 fi
 
 # 运行 docker-compose.yml
-echo "安装 mysql redis jenkins 配置..."
+echo "安装 mysql redis jenkins minio 配置..."
 # 使用 docker-compose 启动服务
 docker-compose -f docker-compose.yml up -d
 
 # 检查上一个命令是否成功
 if [ $? -eq 0 ]; then
-  echo "安装 mysql, redis, jenkins 配置完成！"
+  echo "安装 mysql, redis, jenkins minio 配置完成！"
 
   # 输出 Jenkins 的初始管理员密码
   if [ -f /home/jenkins-compose/secrets/initialAdminPassword ]; then
