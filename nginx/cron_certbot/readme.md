@@ -1,3 +1,5 @@
+# 定时执行 certbot 更新 SSL 证书 不用 cloudflare flexible 的话
+
 # 赋予执行权限
 
 chmod +x setup_cron_job.sh
