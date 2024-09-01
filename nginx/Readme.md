@@ -10,3 +10,7 @@ chmod +x setup.sh
 # 最佳方式 使用 cloudflare flexible
 
 使用 cloudflare flexible
+
+# 重启服务
+
+systemctl restart nginx
