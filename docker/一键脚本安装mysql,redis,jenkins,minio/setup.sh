@@ -73,7 +73,7 @@ if [ $? -eq 0 ]; then
     echo "Redis: redis://$CURRENT_IP:6379"
     echo "MinIO 控制台: http://$CURRENT_IP:9090"
     echo "MinIO 对象存储: http://$CURRENT_IP:9000"
-    echo "Jenkins: http://$CURRENT_IP:8888"
+    echo "Jenkins: http://$CURRENT_IP:8080"
     # 输出 Jenkins 容器内的初始管理员密码
     echo "Jenkins 初始管理员密码如下："
     docker exec $JENKINS_CONTAINER cat $INITIAL_PASSWORD_PATH
