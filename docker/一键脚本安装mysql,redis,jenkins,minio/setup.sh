@@ -24,6 +24,11 @@ else
   echo "Docker Compose 已安装，跳过 Docker Compose 安装步骤。"
 fi
 
+# 设置 /www 目录的权限 日志 yml 等权限
+echo "设置 /www 目录的权限..."
+sudo mkdir -p /www/logs /www/yml
+sudo chmod -R 777 /www
+
 # 运行 docker-compose.yml
 echo "安装 mysql redis jenkins minio 配置..."
 # 使用 docker-compose 启动服务

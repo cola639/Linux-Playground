@@ -52,7 +52,9 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(
 apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io
 
-<!-- dockerd & -->
+dockerd &
+
+ps aux | grep dockerd # 检查 Docker 是否已经在运行
 
 docker --version
 

@@ -37,7 +37,8 @@ services:
       # 宿主机目录:容器目录
       - /var/lib/jenkins:/var/jenkins_home # 持久化 Jenkins 数据
       - /var/run/docker.sock:/var/run/docker.sock # 允许 Jenkins 使用宿主机的 Docker
-      - /www/yml:/www/yml # 挂载宿主机上的springboot yml文件夹
+      - /www/yml:/www/yml # 挂载宿主机上的springboot yml配置
+      - /www/logs:/www/logs # 挂载宿主机上的springboot 日志
     network_mode: bridge
     restart: always # 设置启动策略为 always
 
