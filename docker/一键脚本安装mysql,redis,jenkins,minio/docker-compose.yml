@@ -28,11 +28,13 @@ services:
     user: root
     environment:
       JAVA_OPTS: '-Djava.awt.headless=true'
+      TZ: Asia/Shanghai # 设置亚洲时区
     # 对外端口:容器端口
     ports:
       - '8080:8080'
       - '50000:50000'
     volumes:
+      # 宿主机目录:容器目录
       - /var/lib/jenkins:/var/jenkins_home # 持久化 Jenkins 数据
       - /var/run/docker.sock:/var/run/docker.sock # 允许 Jenkins 使用宿主机的 Docker
       - /www/yml:/www/yml # 挂载宿主机上的springboot yml文件夹
