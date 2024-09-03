@@ -11,6 +11,6 @@ chmod +x setup.sh
 
 使用 cloudflare flexible
 
-# 重启服务
+# 重启 nginx
 
 systemctl restart nginx

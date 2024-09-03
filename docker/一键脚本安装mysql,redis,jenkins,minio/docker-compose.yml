@@ -7,7 +7,8 @@ services:
     # 对外端口:容器端口
     ports:
       - '6060:3306'
-    network_mode: backend
+    networks:
+      - web
     restart: always # 设置启动策略为 always
 
   redis:
@@ -18,7 +19,8 @@ services:
     # 对外端口:容器端口
     ports:
       - '6061:6379'
-    network_mode: backend
+    networks:
+      - web
     restart: always # 设置启动策略为 always
 
   minio:
@@ -35,7 +37,8 @@ services:
       - '9090:9090'
     volumes:
       - /home/docker/minio/data:/data
-    network_mode: backend
+    networks:
+      - web
     restart: always # 设置启动策略为 always
 
   jenkins:
@@ -56,10 +59,11 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock # 允许 Jenkins 使用宿主机的 Docker
       - /www/yml:/www/yml # 挂载宿主机上的springboot yml配置
       - /www/logs:/www/logs # 挂载宿主机上的springboot 日志
-    network_mode: bridge
+    networks:
+      - web
     restart: always # 设置启动策略为 always
 
 networks:
-  backend:
+  web:
     driver: bridge
     name: web

@@ -1,4 +1,4 @@
-# 一键部署 mysql redis jenkins
+# 一键部署 mysql redis jenkins DID
 
 # 文件夹放到同一目录 注意 Vscode LF 格式写 sh 脚本
 
@@ -15,8 +15,6 @@ chmod +x start_jenkins_with_docker.sh
 # 命令行安装 jenkins
 
 docker-compose -f jenkins.yml up -d
-
-FAQ
 
 # 彻底删除 jenkins
 
@@ -66,11 +64,15 @@ sudo chown -R 1000:1000 /path/to/jenkins_home
 docker inspect jenkins
 ctrl + f 搜索 Mounts 查看挂载的卷
 
-# 检测网络容器
+docker inspect colaclub-admin
+ctrl + f 搜索 Mounts 查看挂载的卷
+
+# 检测网络组
 
 docker network ls
 docker network inspect bridge
 docker network inspect web
 
-ctrl + f 搜索 containers 查看挂载的卷
-docker logs colaclub-admin
+# 检查日志 前台运行
+
+docker logs -f colaclub-admin
