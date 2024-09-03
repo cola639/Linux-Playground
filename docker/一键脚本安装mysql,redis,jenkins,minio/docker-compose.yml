@@ -1,24 +1,41 @@
 services:
   mysql:
     image: mysql:5.7
-    container_name: mysql5.7
+    container_name: cola-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 'gxh123456'
+      MYSQL_ROOT_PASSWORD: '123456'
     # 对外端口:容器端口
     ports:
-      - '3306:3306'
-    network_mode: bridge
+      - '6060:3306'
+    network_mode: backend
     restart: always # 设置启动策略为 always
 
   redis:
     image: redis
-    container_name: redis
+    container_name: cola-redis
     environment:
-      REDIS_PASSWORD: 'gxh123456'
+      REDIS_PASSWORD:
     # 对外端口:容器端口
     ports:
-      - '6379:6379'
-    network_mode: bridge
+      - '6061:6379'
+    network_mode: backend
+    restart: always # 设置启动策略为 always
+
+  minio:
+    image: minio/minio
+    container_name: minio
+    environment:
+      MINIO_ACCESS_KEY: 'admin'
+      MINIO_SECRET_KEY: 'admin123'
+      TZ: 'Asia/Shanghai'
+    command: server /data --console-address ":9090" --address ":9000"
+    # 对外端口:容器端口
+    ports:
+      - '9000:9000'
+      - '9090:9090'
+    volumes:
+      - /home/docker/minio/data:/data
+    network_mode: backend
     restart: always # 设置启动策略为 always
 
   jenkins:
@@ -42,19 +59,7 @@ services:
     network_mode: bridge
     restart: always # 设置启动策略为 always
 
-  minio:
-    image: minio/minio
-    container_name: minio
-    environment:
-      MINIO_ACCESS_KEY: 'admin'
-      MINIO_SECRET_KEY: 'admin123'
-      TZ: 'Asia/Shanghai'
-    command: server /data --console-address ":9090" --address ":9000"
-    # 对外端口:容器端口
-    ports:
-      - '9000:9000'
-      - '9090:9090'
-    volumes:
-      - /home/docker/minio/data:/data
-    network_mode: bridge
-    restart: always # 设置启动策略为 always
+networks:
+  backend:
+    driver: bridge
+    name: web

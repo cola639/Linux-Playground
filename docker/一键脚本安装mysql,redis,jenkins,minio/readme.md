@@ -61,7 +61,16 @@ docker --version
 sudo chmod -R 755 /path/to/jenkins_home
 sudo chown -R 1000:1000 /path/to/jenkins_home
 
-# 查找 jenkins 容器挂载的卷
+# 查找 容器挂载的卷
 
 docker inspect jenkins
 ctrl + f 搜索 Mounts 查看挂载的卷
+
+# 检测网络容器
+
+docker network ls
+docker network inspect bridge
+docker network inspect web
+
+ctrl + f 搜索 containers 查看挂载的卷
+docker logs colaclub-admin
